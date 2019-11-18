@@ -25,8 +25,15 @@ jobs:
         fi
 
     - name: Build x86
-      run: CGO_ENABLED=0 GOARCH=x86_64 GOOS=linux go build -a -ldflags="-w -s" -o ./bin/webcam-x86_64
+      run: CGO_ENABLED=0 GOARCH=x86 GOOS=linux go build -a -ldflags="-w -s" -o ./bin/webcam-x86
       id: build_x86
       
     - name: Build ARM
       run: CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=5 go build -a -ldflags="-w -s" -o ./bin/webcam-arm
+      id: build_arm
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: webcam-stream
+        path: ./bin
