@@ -30,6 +30,3 @@ jobs:
       
     - name: Build ARM
       run: CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=5 go build -a -ldflags="-w -s" -o ./bin/webcam-arm
-    
-    - name: GH Release
-      uses: softprops/action-gh-release@v0.1.0
