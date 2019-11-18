@@ -24,8 +24,8 @@ jobs:
             dep ensure
         fi
 
-    - name: Build x86
-      run: CGO_ENABLED=0 GOARCH=x86 GOOS=linux go build -a -ldflags="-w -s" -o ./bin/webcam-x86
+    - name: Build amd64
+      run: CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -a -ldflags="-w -s" -o ./bin/webcam-amd64
       
     - name: Build ARM
       run: CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=5 go build -a -ldflags="-w -s" -o ./bin/webcam-arm
